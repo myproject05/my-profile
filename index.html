@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ปฏิพล อบทม — ประวัติส่วนตัว สำหรับการฝึกสหกิจศึกษา</title>
+<meta name="description" content="เว็บไซต์ประวัติส่วนตัวอย่างเป็นทางการ สำหรับสมัครฝึกสหกิจศึกษา">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   แนวคิด: "เอกสารทางการ" — หัวจดหมาย + ปิดท้ายแบบจดหมายราชการ
+   ตัวอักษรมีระบบเดียว: Noto Serif Thai (หัวเรื่อง) + Sarabun (เนื้อหา)
+   สีจำกัด: กระดาษไอวอรี่ / หมึกกรมท่าเข้ม / กรั่งแดงเลือดหมู (ใช้จุดเดียว)
+   ============================================================ */
+:root{
+  --paper:  #FBF9F4;
+  --ink:    #1E2734;
+  --ink-soft: #5B6572;
+  --accent: #7B2531;
+  --line:   #E1DDD0;
+  --white:  #FFFFFF;
+
+  --f-head: "Noto Serif Thai", serif;
+  --f-body: "Sarabun", sans-serif;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-weight:400;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+::selection{ background:var(--accent); color:var(--white); }
+:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+.wrap{ max-width:860px; margin:0 auto; padding:0 clamp(20px,5vw,40px); }
+
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation:none !important; transition:none !important; }
+}
+
+h1,h2,h3{ font-family:var(--f-head); color:var(--ink); font-weight:600; }
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+.topbar{
+  position:sticky; top:0; z-index:50;
+  background:rgba(251,249,244,0.94);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:860px; margin:0 auto;
+  padding:16px clamp(20px,5vw,40px);
+  display:flex; justify-content:space-between; align-items:center;
+}
+.topbar-name{ font-family:var(--f-head); font-size:1rem; font-weight:600; }
+.topbar-nav{ display:flex; gap:26px; }
+.topbar-nav a{
+  text-decoration:none; font-size:0.86rem; color:var(--ink-soft);
+  font-weight:500; letter-spacing:0.01em; transition:color .2s;
+}
+.topbar-nav a:hover{ color:var(--accent); }
+@media (max-width:640px){ .topbar-nav{ display:none; } }
+
+/* ============================================================
+   LETTERHEAD — หัวเอกสารแบบทางการ
+   ============================================================ */
+.letterhead{
+  text-align:center;
+  padding:64px 0 52px;
+}
+
+.portrait{
+  width:148px; height:148px; margin:0 auto 22px;
+  border:1.5px solid var(--accent);
+  border-radius:50%;
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+  background:var(--white);
+}
+.portrait::before{
+  content:""; position:absolute; inset:6px;
+  border:1px solid var(--accent); border-radius:50%; opacity:0.4;
+  pointer-events:none; z-index:2;
+}
+.portrait img{
+  width:100%; height:100%; object-fit:cover; position:relative; z-index:1;
+  object-position: center 30%;
+}
+.portrait-fallback{
+  display:none; font-family:var(--f-body); font-size:0.74rem; color:var(--ink-soft);
+  text-align:center; line-height:1.4; padding:0 12px;
+}
+.portrait.no-photo .portrait-fallback{ display:block; }
+
+.eyebrow{
+  font-size:0.8rem; letter-spacing:0.12em; color:var(--ink-soft);
+  text-transform:uppercase; margin-bottom:14px;
+}
+
+.letterhead h1{
+  font-size:clamp(2.1rem,5vw,2.9rem);
+  margin-bottom:8px;
+}
+.letterhead .role{
+  font-size:1.02rem; color:var(--ink-soft); font-weight:400;
+}
+
+.rule-orn{
+  display:flex; align-items:center; gap:14px;
+  max-width:360px; margin:30px auto;
+}
+.rule-orn::before, .rule-orn::after{ content:""; flex:1; height:1px; background:var(--line); }
+.rule-orn span{ width:5px; height:5px; background:var(--accent); border-radius:50%; }
+
+.meta-line{
+  font-size:0.92rem; color:var(--ink-soft);
+  display:flex; flex-wrap:wrap; justify-content:center; gap:8px 14px;
+  margin-bottom:30px;
+}
+.meta-line b{ color:var(--ink); font-weight:500; }
+.meta-line .sep{ color:var(--line); }
+
+.statement{
+  max-width:58ch; margin:0 auto 34px;
+  font-size:1rem; color:var(--ink);
+}
+
+.letter-actions{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+.btn{
+  display:inline-block; padding:12px 26px;
+  border:1px solid var(--ink); text-decoration:none;
+  font-size:0.86rem; letter-spacing:0.04em; color:var(--ink);
+  transition:background .18s, color .18s, border-color .18s;
+}
+.btn:hover{ background:var(--ink); color:var(--paper); }
+.btn-primary{ background:var(--accent); border-color:var(--accent); color:var(--white); }
+.btn-primary:hover{ background:#611c26; border-color:#611c26; }
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+section{ padding:14px 0 64px; }
+
+.sec-head{
+  display:flex; align-items:baseline; gap:16px;
+  margin-bottom:30px; padding-bottom:14px;
+  border-bottom:1px solid var(--line);
+}
+.sec-num{ font-family:var(--f-head); font-size:1rem; color:var(--accent); font-style:italic; }
+.sec-title{ font-size:clamp(1.25rem,2.4vw,1.5rem); }
+
+.reveal{ opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease; }
+.reveal.is-visible{ opacity:1; transform:none; }
+
+/* ---- 01 ข้อมูลส่วนตัว ---- */
+.about-grid{ display:grid; grid-template-columns:1.35fr 1fr; gap:48px; }
+@media (max-width:700px){ .about-grid{ grid-template-columns:1fr; } }
+.about-text p{ margin-bottom:15px; max-width:60ch; color:var(--ink); }
+
+.fact-list{ list-style:none; }
+.fact-list li{
+  display:flex; justify-content:space-between; gap:14px;
+  padding:12px 0; border-bottom:1px solid var(--line);
+  font-size:0.92rem;
+}
+.fact-list li span:first-child{ color:var(--ink-soft); }
+.fact-list li span:last-child{ font-weight:500; text-align:right; }
+
+/* ---- 02 การศึกษา / 05 ประสบการณ์ (รูปแบบเดียวกัน) ---- */
+.entry-list{ display:flex; flex-direction:column; }
+.entry{
+  display:grid; grid-template-columns:190px 1fr; gap:20px;
+  padding:22px 0; border-bottom:1px solid var(--line);
+}
+.entry:last-child{ border-bottom:none; }
+@media (max-width:600px){ .entry{ grid-template-columns:1fr; gap:6px; } }
+.entry-date{ color:var(--ink-soft); font-size:0.88rem; padding-top:2px; }
+.entry h3{ font-size:1.08rem; margin-bottom:4px; font-weight:600; }
+.entry p{ color:var(--ink-soft); font-size:0.92rem; max-width:56ch; }
+
+/* ---- 03 ทักษะ ---- */
+.skill-block{ margin-bottom:30px; }
+.skill-block:last-child{ margin-bottom:0; }
+.skill-block h3{
+  font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--ink-soft); font-family:var(--f-body); font-weight:600;
+  margin-bottom:14px;
+}
+.skill-row{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:10px 0; border-bottom:1px solid var(--line);
+  font-size:0.95rem;
+}
+.skill-row:last-child{ border-bottom:none; }
+.skill-row .level{ color:var(--accent); font-size:0.86rem; font-weight:500; }
+
+/* ---- 04 ผลงาน ---- */
+.project{
+  padding:24px 0 24px 22px;
+  border-bottom:1px solid var(--line);
+  border-left:2px solid var(--accent);
+}
+.project:last-child{ border-bottom:none; }
+.project h3{ font-size:1.1rem; margin-bottom:6px; }
+.project p{ color:var(--ink-soft); font-size:0.93rem; max-width:62ch; margin-bottom:8px; }
+.project .stack{ font-size:0.84rem; color:var(--ink-soft); }
+.project .stack b{ color:var(--ink); font-weight:500; }
+.project a{
+  display:inline-block; margin-top:8px; font-size:0.88rem; font-weight:500;
+  color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent);
+}
+.project a:hover{ color:#611c26; border-color:#611c26; }
+
+/* ---- 06 ติดต่อ — ปิดท้ายแบบจดหมายราชการ ---- */
+.closing{ max-width:520px; margin:0 auto; text-align:center; }
+.closing-phrase{ font-family:var(--f-head); font-size:1.15rem; margin-bottom:46px; }
+
+.signature-line{
+  width:220px; margin:0 auto 8px; border-bottom:1px solid var(--ink);
+  height:50px;
+}
+.signature-cap{ font-size:0.82rem; color:var(--ink-soft); margin-bottom:44px; }
+
+.contact-list{ list-style:none; text-align:left; max-width:380px; margin:0 auto; }
+.contact-list li{
+  display:flex; justify-content:space-between; gap:14px;
+  padding:12px 0; border-bottom:1px solid var(--line);
+  font-size:0.94rem;
+}
+.contact-list li:last-child{ border-bottom:none; }
+.contact-list span:first-child{ color:var(--ink-soft); }
+.contact-list a{ text-decoration:none; font-weight:500; }
+.contact-list a:hover{ color:var(--accent); }
+
+/* ---- FOOTER ---- */
+footer{
+  text-align:center; padding:40px 0 56px;
+  font-size:0.82rem; color:var(--ink-soft);
+  border-top:1px solid var(--line);
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-name">ปฏิพล อบทม</div>
+    <nav class="topbar-nav">
+      <a href="#about">ข้อมูลส่วนตัว</a>
+      <a href="#education">การศึกษา</a>
+      <a href="#skills">ทักษะ</a>
+      <a href="#projects">ผลงาน</a>
+      <a href="#experience">ประสบการณ์</a>
+      <a href="#contact">ติดต่อ</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ============================================================
+       LETTERHEAD
+       ============================================================ -->
+  <div class="letterhead">
+    <div class="portrait">
+      <!-- แก้ src เป็นไฟล์รูปจริงของคุณ เช่น "photo.jpg" (แนะนำรูปทางการ พื้นหลังเรียบ สัดส่วนสี่เหลี่ยม) -->
+      <img src="photo.png" alt="รูปถ่ายปฏิพล อบทม"
+           onerror="this.style.display='none'; this.parentElement.classList.add('no-photo');">
+      <span class="portrait-fallback">รูปถ่าย<br>ทางการ</span>
+    </div>
+
+    <h1>ปฏิพล อบทม</h1>
+    <div class="role">นักศึกษาชั้นปีที่ 2(เทียบโอน) สาขาเทคโนโลยีสารสนเทศและการสื่อสาร</div>
+
+    <div class="rule-orn"><span></span></div>
+
+    <div class="meta-line">
+      <span><b>รหัสนักศึกษา</b> 67120607</span>
+      <span class="sep">•</span>
+      <span><b>คณะเทคโนโลยีสารสนเทศ</b></span>
+      <span class="sep">•</span>
+      <span>มหาวิทยาลัยศรีปทุม</span>
+    </div>
+
+    <p class="statement">
+      มีความมุ่งมั่นในการนำเทคโนโลยีสารสนเทศมาประยุกต์ใช้แก้ปัญหาและพัฒนาระบบงานอย่างมีประสิทธิภาพ ใฝ่เรียนรู้เทคโนโลยีใหม่อยู่เสมอและรับผิดชอบต่อหน้าที่ที่ได้รับมอบหมาย เพื่อพัฒนาทักษะวิชาชีพด้านไอทีและประสบการณ์การทำงานจริง
+    </p>
+
+    <div class="letter-actions">
+      <a class="btn btn-primary" href="resume.pdf" download>ดาวน์โหลดเรซูเม่</a>
+      <a class="btn" href="#contact">ช่องทางติดต่อ</a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       01 ข้อมูลส่วนตัว
+       ============================================================ -->
+  <section id="about" class="reveal">
+    <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">ข้อมูลส่วนตัว</h2></div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>ผมชื่อปฏิพล อบทม เป็นนักศึกษาชั้นปีที่ 2(เทียบโอน) คณะเทคโนโลยีสารสนเทศ สาขาเทคโนโลยีสารสนเทศและการสื่อสาร มหาวิทยาลัยศรีปทุม สนใจการพัฒนาส่วนหน้าเว็บแอปพลิเคชัน (Frontend Development)</p>
+        <p>ตลอดระยะเวลาการศึกษา ได้ฝึกฝนทั้งภาคทฤษฎีและปฏิบัติผ่านโครงงานรายวิชาและกิจกรรมของคณะ มีความมุ่งมั่นนำความรู้ไปประยุกต์ใช้เพื่อพัฒนาทักษะการทำงานจริงและเตรียมความพร้อมสู่การเป็นบัณฑิตที่มีคุณภาพ</p>
+      </div>
+
+      <ul class="fact-list">
+        <li><span>วันเกิด</span><span>30 พฤษภาคม 2545</span></li>
+        <li><span>ที่อยู่</span><span>กรุงเทพมหานคร</span></li>
+        <li><span>เกรดเฉลี่ยสะสม</span><span>3.26 / 4.00</span></li>
+        <li><span>ภาษา</span><span>ไทย, อังกฤษ (ดี)</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02 การศึกษา
+       ============================================================ -->
+  <section id="education" class="reveal">
+    <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">ประวัติการศึกษา</h2></div>
+
+    <div class="entry-list">
+      <div class="entry">
+        <div class="entry-date">2567 — ปัจจุบัน</div>
+        <div>
+          <h3>ปริญญาตรี มหาวิทยาลัยศรีปทุม</h3>
+          <p>คณะเทคโนโลยีสารสนเทศ — เกรดเฉลี่ยสะสม 3.26</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-date">2561 — 2565</div>
+        <div>
+          <h3>ปวช - ปวส วิทยาลัยเทคโนโลยีพัทยาพณิชยการ pbac</h3>
+          <p>คอมพิวเตอร์ธุระกิจ — เกรดเฉลี่ย 3.10</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       03 ทักษะ
+       ============================================================ -->
+  <section id="skills" class="reveal">
+    <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">ทักษะและความสามารถ</h2></div>
+
+    <div class="skill-block">
+      <h3>ภาษาโปรแกรม</h3>
+      <div class="skill-row"><span>HTML</span><span class="level">ดีมาก</span></div>
+      <div class="skill-row"><span>CSS</span><span class="level">ดี</span></div>
+      <div class="skill-row"><span>Java</span><span class="level">ดี</span></div>
+    </div>
+
+    <div class="skill-block">
+      <h3>เครื่องมือและเฟรมเวิร์ก</h3>
+      <div class="skill-row"><span>React</span><span class="level">ดีมาก</span></div>
+      <div class="skill-row"><span>Node.js / Express</span><span class="level">ดี</span></div>
+      <div class="skill-row"><span>GitHub</span><span class="level">ดี</span></div>
+    </div>
+
+    <div class="skill-block">
+      <h3>ทักษะทางสังคม</h3>
+      <div class="skill-row"><span>การทำงานเป็นทีม</span><span class="level">ดีมาก</span></div>
+      <div class="skill-row"><span>การสื่อสาร</span><span class="level">ดีมาก</span></div>
+      <div class="skill-row"><span>การบริหารเวลา</span><span class="level">ดี</span></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       04 ผลงาน
+       ============================================================ -->
+  <section id="projects" class="reveal">
+    <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">ผลงานและโครงงาน</h2></div>
+
+    <div class="project">
+      <h3>ระบบแจ้งเตือนผลบอลแบบเรียลไทม์ผ่าน Discord</h3>
+      <p>ระบบดึงข้อมูลผลการแข่งขันฟุตบอลแบบอัตโนมัติ ตรวจจับการเปลี่ยนแปลงคะแนน และส่งข้อความแจ้งเตือนเข้า Discord แบบเรียลไทม์</p>
+      <div class="stack"><b>เครื่องมือที่ใช้</b> — n8n, API-Football, Discord Webhook</div>
+    </div>
+
+    <div class="project">
+      <h3>ระบบแจ้งเตือนการลงทะเบียนห้องพักผ่าน LINE</h3>
+      <p>ระบบอัตโนมัติสำหรับตรวจจับข้อมูลการจองห้องพักใหม่ และส่งข้อความแจ้งเตือนไปยังผู้เกี่ยวข้องผ่าน LINE แบบทันที ลดขั้นตอนการแจ้งเตือนด้วยมือ</p>
+      <div class="stack"><b>เครื่องมือที่ใช้</b> — UiPath, LINE Notify / LINE Messaging API, Google Sheets</div>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       05 ประสบการณ์
+       ============================================================ -->
+  <section id="experience" class="reveal">
+    <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">ประสบการณ์และกิจกรรม</h2></div>
+
+    <div class="entry-list">
+      <div class="entry">
+        <div class="entry-date">2569</div>
+        <div>
+          <h3>อบรมการพัฒนาระบบอัตโนมัติด้วยระบบ RPA | 25 มีนาคม 2569</h3>
+          <p>ศึกษาและพัฒนาซอฟต์แวร์หุ่นยนต์อัตโนมัติ (Robotic Process Automation) เพื่อเพิ่มประสิทธิภาพในการ จัดการกระบวนการทำงาน ข้อมูล และลดความผิดพลาดในการทำงานของมนุษย์</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-date">2565</div>
+        <div>
+          <h3>ฝึกงาน แผนกคอมพิวเตอร์ธุรกิจ วิทยาลัยเทคโนโลยีพัทยาพณิชยการ pbac</h3>
+          <p>ฝึกปฏิบัติงานด้านคอมพิวเตอร์ธุรกิจ สนับสนุนงานด้านเทคโนโลยีสารสนเทศและระบบสารสนเทศภายในหน่วยงาน</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       06 ติดต่อ — ปิดท้ายแบบจดหมายราชการ
+       ============================================================ -->
+  <section id="contact" class="reveal">
+    <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">ช่องทางติดต่อ</h2></div>
+
+      <ul class="contact-list">
+        <li><span>อีเมล</span><a href="mailto:somchai.j@example.ac.th">Frangbam1230@gmail.com</a></li>
+        <li><span>โทรศัพท์</span><a href="tel:+66812345678">080-217-4531</a></li>
+        <li><span>GitHub</span><a href="https://github.com/your-username" target="_blank" rel="noopener">github.com/your-username</a></li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!prefersReduced && 'IntersectionObserver' in window){
+    const items = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    items.forEach(el=>io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));
+  }
+</script>
+
+</body>
+</html>
